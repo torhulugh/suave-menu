@@ -1,0 +1,409 @@
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: auto;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+}
+
+#header-site-logo {
+  background-color: #000;
+  width: 110px;
+  height: 60px;
+  border-radius: 30px;
+  display: flex;
+  position: absolute;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  top: 25px;
+  left: 2.4%;
+  bottom: 24px;
+}
+#screen-mode {
+  display: none;
+}
+#light-mode-icn {
+  display: none;
+}
+#dark-mode-icn {
+  display: none;
+}
+#header-site-logo-img {
+  z-index: 9000;
+  width: 80px;
+}
+#desktopMenu-open-close-btn-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  display: flex;
+  position: absolute;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+  top: 25px;
+  right: 2.5%;
+  bottom: 25px;
+}
+#desktopMenu-collapse-button {
+  display: flex;
+  background-color: #2c2b2e;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  position: absolute;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 5px 2px #00000050;
+}
+#desktopMenu-open-button {
+  display: none;
+  background-color: #2c2b2e;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  position: absolute;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+#desktopMenu-collapse-btn-icon {
+  display: flex;
+  width: 50px;
+  height: 50px;
+}
+#desktopMenu-open-btn-icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+#desktopMenu-collapse-button:hover {
+  background-image: linear-gradient(
+    50deg,
+    #1b1a1a7a,
+    #0f0f0f92,
+    #1b1a1a94,
+    #0f0f0f94,
+    #2726266b
+  );
+}
+#desktop-menu {
+  background-color: #0d0c0d8a;
+  border-radius: 60px;
+  width: 98%;
+  height: 90px;
+  display: flex;
+  position: fixed;
+  top: 10px;
+  margin: 0;
+  z-index: 900;
+}
+#desktopMenu-background-color {
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid #55555505;
+  background-color: #0f0f0f55;
+  display: flex;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  box-shadow: 0px 3px 10px #0000006a;
+  border-radius: 60px;
+  backdrop-filter: brightness() opacity(70%) blur(8px);
+  background-image: linear-gradient(
+    50deg,
+    #1b1a1a7a,
+    #0f0f0f92,
+    #1b1a1a94,
+    #0f0f0f94,
+    #2726266b
+  );
+}
+#desktopMenu-icon-tray {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  z-index: 204;
+}
+.desktopMenuIconContainer {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  z-index: 203;
+  transform: translateY(-7%);
+  gap: 1px;
+}
+.desktopMenuIconsName {
+  width: 85px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.07rem;
+  margin: 0%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.desktopMenuIcon {
+  width: 137.5%;
+  height: 15.5%;
+  filter: drop-shadow(#000);
+  filter: opacity(80.8%);
+}
+#light-mode {
+  width: 137.5%;
+  height: 15.5%;
+  filter: drop-shadow(#000);
+  filter: opacity(80.8%);
+}
+#dark-mode {
+  display: none;
+  width: 137.5%;
+  height: 15.5%;
+  filter: drop-shadow(#000);
+  filter: opacity(80.8%);
+}
+.desktopMenuIconHoverEffect {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 60px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0px, -10px);
+  visibility: visible;
+  filter: blur(15px);
+  transform: 0.3s ease-in-out;
+  z-index: -199;
+}
+.desktopMenuIconContainer:hover {
+  scale: 115%;
+  transition: 0.5s;
+}
+.greenBlur {
+  background: linear-gradient(#35c656, #32c1ed);
+  display: flex;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 60px;
+  filter: opacity(50%);
+  transform: translate(-14px, -0px);
+  align-content: center;
+}
+.purpleBlur {
+  content: ".";
+  background: linear-gradient(#ca69ea, #ad8af8, #7719ab);
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 60px;
+  filter: opacity(50%);
+  transform: translate(14px, 0px);
+  align-content: center;
+}
+.pinkBlur {
+  background: linear-gradient(#7863e6, #e29eb2);
+  content: ".";
+  z-index: 1;
+  display: flex;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 60px;
+  filter: opacity(50%);
+  transform: translate(0px, 24px);
+  align-content: center;
+}
+.desktopMenuIconLink {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: #979292;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.07rem;
+  margin: 0%;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+/*=========  .7. MEDIA QUERIES ================= */
+/* <<<<<<<<>>>>>>>>  desktop2 <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 1358px) {
+  #desktopMenu-icon-tray {
+    gap: 5%;
+  }
+}
+/* <<<<<<<<>>>>>>>>  desktop 3 <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 1112px) {
+  #desktopMenu-icon-tray {
+    gap: 5px;
+  }
+}
+/* <<<<<<<<>>>>>>>>  desktop mini <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 909px) {
+  /* ---- menu ------ */
+  #desktop-menu {
+    display: none;
+  }
+  #mobile-menu {
+    display: flex;
+  }
+  #mobileMenu-icon-tray1 {
+    justify-content: center;
+    gap: 80px;
+  }
+  #desktopMenu-collapse-button {
+    display: none;
+  }
+  #desktopMenu-icon-tray {
+    gap: 10px;
+  }
+  /* ---- floating icons ----- */
+  #header-site-logo {
+    display: none;
+    width: 100px;
+    height: 50px;
+    left: 20px;
+    top: -70px;
+    border: 0.5px solid #55555502;
+    background-color: #0f0f0f7e;
+    box-shadow: 0px 3px 10px #000000bb;
+    backdrop-filter: opacity(70%) blur(8px);
+    background-image: linear-gradient(
+      50deg,
+      #1b1a1a7a,
+      #0f0f0f92,
+      #1b1a1a94,
+      #0f0f0f94,
+      #2726266b
+    );
+  }
+  #header-site-logo-img {
+    width: 80px;
+  }
+  #screen-mode {
+    display: none;
+    position: absolute;
+    z-index: 9000;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: -70px;
+    border: 0.5px solid #5555551f;
+    border-radius: 60px;
+    background-color: #0f0f0f07;
+    box-shadow: 0px 3px 10px #000000bb;
+    backdrop-filter: opacity(70%) blur(8px);
+    background-image: linear-gradient(
+      50deg,
+      #1b1a1a7a,
+      #0f0f0f92,
+      #1b1a1a94,
+      #0f0f0f94,
+      #2726266b
+    );
+  }
+  #light-mode-icn {
+    display: flex;
+  }
+  #dark-mode-icn {
+    display: none;
+  }
+}
+/* <<<<<<<<>>>>>>>> .7b. Tablet <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 768px) {
+  #desktop-menu {
+    display: none;
+  }
+ 
+  #desktopMenu-collapse-button {
+    display: none;
+  }
+  #desktopMenu-icon-tray {
+    gap: 10px;
+  }
+  #header-site-logo {
+    left: 20px;
+    top: 1px;
+  }
+  #header-site-logo-img {
+    width: 80px;
+  }
+  #screen-mode {
+    height: 50px;
+    right: 20px;
+    top: 1px;
+  }
+  #light-mode-icn {
+    display: flex;
+  }
+  #dark-mode-icn {
+    display: none;
+  }
+}
+/* <<<<<<<>>>>>>>> the inbetween mobile and tablet <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 644px) {
+
+}
+/* <<<<<<<<>>>>>>>> .7b. Mobile <<<<<<<<>>>>>>>> */
+@media screen and (max-width: 480px) {
+
+  #desktop-menu {
+    display: none;
+  }
+
+  #desktopMenu-collapse-button {
+    display: none;
+  }
+  nav {
+    padding: 0;
+  }
+  #header-site-logo {
+    left: 15px;
+  }
+  #header-site-logo-img {
+    width: 80px;
+  }
+
+  #screen-mode {
+    right: 15px;
+  }
+  #light-mode-icn {
+    display: flex;
+  }
+  #dark-mode-icn {
+    display: none;
+  }
+}

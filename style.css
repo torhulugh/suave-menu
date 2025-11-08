@@ -1,0 +1,20 @@
+
+/*============= .1. GENERAL ===================*/
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: #161616;
+  margin: 0;
+}
+/*============= .2. LAYOUT ===================*/
+main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  /* margin: 145px 0px 100px 0px; */
+  margin: 110px 0px 100px 0px;
+}
