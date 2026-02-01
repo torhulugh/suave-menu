@@ -1,0 +1,90 @@
+#mobile--header{
+  display: none;
+  position: fixed;
+  top: 0px;
+  width: 100dvw;
+  height: 70px;
+  background-image: radial-gradient(circle, #ffffff00, #ebeaea00);
+  backdrop-filter: blur(10px) opacity(95%) ;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  
+}
+@media screen and (max-width: 480px) {
+#mobile--header{
+  display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100dvw;
+  height: 70px;
+  background-image: radial-gradient(circle, #ffffff00, #ebeaea00);
+  backdrop-filter: blur(10px) opacity(95%) ;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  
+}
+#mobile--navbar{
+  display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin-top: 7px;
+  gap: 7%;
+
+}
+#mHeader--logo img{
+  width: 80px;
+  height: auto;
+}
+#mHeader--left--button, #mHeader--right--button{
+  color: #979292;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+    width: 100px;
+    height: 30px;
+    /* border: 0.9px solid #55555502; */
+    border-radius: 12px;
+    background-color: #0f0f0f7e;
+    /* box-shadow: 0px 3px 10px #000000bb; */
+    backdrop-filter: opacity(70%) blur(8px);
+    background-image: linear-gradient(
+      350deg,
+      #454343a8 10%,
+      #4D4C4C20 40%,
+      #8d8d8d20 100%
+    );
+    gap: 5%;
+    padding: 5px 10px;
+}
+#mHeader--left--button img, #mHeader--right--button img{
+  color: #979292;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+#mHeader--left--button p, #mHeader--right--button p{
+  color: #979292;
+  display: flex;
+  font-size: 0.8rem;
+  width: fit-content;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+    
+}
+}
