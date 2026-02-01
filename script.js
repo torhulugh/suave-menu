@@ -96,7 +96,11 @@ window.onload = function () {
       desktopBackground.style.backdropFilter = "opacity(70%) blur(8px)";
     }
     desktopMenuIcons.forEach((icon) => {
+<<<<<<< HEAD
       icon.style.filter = "brightness(35%)";
+=======
+      icon.style.filter = "brightness(80.8%)";
+>>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
     });
     body.style.backgroundColor = "#E6E6E6";
     if (lightModeToggle) lightModeToggle.style.display = "none";
@@ -129,12 +133,20 @@ window.onload = function () {
     if (darkModeToggle) darkModeToggle.style.display = "none";
   }
 
+<<<<<<< HEAD
   // save theme preference to localStorage
+=======
+  // Function to save theme preference to localStorage
+>>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
   function saveThemePreference(theme) {
     localStorage.setItem("theme-preference", theme);
   }
 
+<<<<<<< HEAD
   // get theme preference from localStorage
+=======
+  // Function to get theme preference from localStorage
+>>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
   function getThemePreference() {
     return localStorage.getItem("theme-preference") || "light"; // default to light mode
   }
@@ -190,4 +202,7 @@ window.onload = function () {
     };
   }
 };
+<<<<<<< HEAD
 // -------------------------------------------------------------------------------
+=======
+>>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
