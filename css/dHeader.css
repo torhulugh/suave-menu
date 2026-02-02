@@ -7,6 +7,7 @@ header {
   align-items: center;
   justify-content: center;
   z-index: 900;
+  overflow: hidden;
 }
 
 #header-site-logo {
@@ -24,15 +25,7 @@ header {
   left: 2.4%;
   bottom: 24px;
 }
-#screen-mode {
-  display: none;
-}
-#light-mode-icn {
-  display: none;
-}
-#dark-mode-icn {
-  display: none;
-}
+
 #header-site-logo-img {
   z-index: 9000;
   width: 80px;
@@ -62,6 +55,7 @@ header {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 2px 5px 2px #00000050;
+  transition: 300ms ease-in-out;
 }
 #desktopMenu-open-button {
   display: none;
@@ -77,13 +71,13 @@ header {
 }
 #desktopMenu-collapse-btn-icon {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 #desktopMenu-open-btn-icon {
   display: flex;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 #desktopMenu-collapse-button:hover {
   background-image: linear-gradient(
@@ -119,7 +113,7 @@ header {
   z-index: 200;
   box-shadow: 0px 3px 10px #0000006a;
   border-radius: 60px;
-  backdrop-filter: brightness() opacity(70%) blur(8px);
+  backdrop-filter: brightness() opacity(70%) blur(11px);
   background-image: linear-gradient(
     50deg,
     #1b1a1a7a,
@@ -154,6 +148,12 @@ header {
   transform: translateY(-7%);
   gap: 1px;
 }
+.desktopMenuIconContainer:hover {
+  .desktopMenuIcon {
+  animation: happy-wiggle 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+}
 .desktopMenuIconsName {
   width: 85px;
   font-family: Arial, Helvetica, sans-serif;
@@ -170,16 +170,55 @@ header {
   filter: drop-shadow(#000);
   filter: opacity(80.8%);
 }
+
+#theme {
+  color: #eeeeee;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  border: 1.5px dashed #343333;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 203;
+  padding: 10px 15px;
+  margin-left: 30px;
+  border-radius: 20px;
+  gap: 15px;
+}
+#theme:hover {
+  background-color: #a7a9b144;
+  border: 0.5px dashed transparent;
+  #light-mode {
+    animation: spin 8s ease-in-out infinite;;
+  }
+}
+#theme p {
+  color: #fffbfb;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  font-weight: lighter;
+  justify-content: center;
+  font-size: 0.8rem;
+  align-self: center;
+  border-radius: 10px;
+}
 #light-mode {
-  width: 137.5%;
-  height: 15.5%;
+  width: 30px;
+  height: 30px;
   filter: drop-shadow(#000);
   filter: opacity(80.8%);
 }
 #dark-mode {
   display: none;
-  width: 137.5%;
-  height: 15.5%;
+  width: 30px;
+  height: 30px;
   filter: drop-shadow(#000);
   filter: opacity(80.8%);
 }
@@ -192,11 +231,11 @@ header {
   align-content: center;
   align-items: center;
   justify-content: center;
-  transform: translate(0px, -10px);
+  transform: translate(0px, -11px);
   visibility: visible;
-  filter: blur(15px);
+  filter: blur(15px) opacity(70%);
   transform: 0.3s ease-in-out;
-  z-index: -199;
+  z-index: 100;
 }
 .desktopMenuIconContainer:hover {
   scale: 115%;
@@ -207,7 +246,7 @@ header {
   display: flex;
   position: absolute;
   width: 30px;
-  height: 30px;
+  height: 50px;
   border-radius: 60px;
   filter: opacity(50%);
   transform: translate(-14px, -0px);
@@ -217,7 +256,7 @@ header {
   content: ".";
   background: linear-gradient(#ca69ea, #ad8af8, #7719ab);
   display: flex;
-  width: 30px;
+  width: 40px;
   height: 30px;
   border-radius: 60px;
   filter: opacity(50%);
@@ -230,7 +269,7 @@ header {
   z-index: 1;
   display: flex;
   position: absolute;
-  width: 30px;
+  width: 40px;
   height: 30px;
   border-radius: 60px;
   filter: opacity(50%);
@@ -257,19 +296,19 @@ header {
 }
 /*=========  .7. MEDIA QUERIES ================= */
 /* <<<<<<<<>>>>>>>>  desktop2 <<<<<<<<>>>>>>>> */
-@media screen and (max-width: 1358px) {
+@media screen and (max-width: 1456px) {
   #desktopMenu-icon-tray {
     gap: 5%;
   }
 }
 /* <<<<<<<<>>>>>>>>  desktop 3 <<<<<<<<>>>>>>>> */
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 1210px) {
   #desktopMenu-icon-tray {
     gap: 5px;
   }
 }
 /* <<<<<<<<>>>>>>>>  desktop mini <<<<<<<<>>>>>>>> */
-@media screen and (max-width: 909px) {
+@media screen and (max-width: 973px) {
   /* ---- menu ------ */
   #desktop-menu {
     display: none;
@@ -406,4 +445,22 @@ header {
   #dark-mode-icn {
     display: none;
   }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes happy-wiggle {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(-6deg); }
+  20%  { transform: rotate(6deg); }
+  30%  { transform: rotate(-4deg); }
+  40%  { transform: rotate(4deg); }
+  50%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }

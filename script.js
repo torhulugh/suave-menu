@@ -10,23 +10,25 @@ window.onload = function () {
   const darkModeToggle = document.getElementById("dark-mode");
   // desktop-collapse-button
   const desktopCollapseButton = document.getElementById(
-    "desktopMenu-collapse-button"
+    "desktopMenu-collapse-button",
   );
   // desktop-open-button
   const desktopOpenButton = document.getElementById("desktopMenu-open-button");
   // desktop-open-button
   const desktopMenuOpenBtnIcon = document.getElementById(
-    "desktopMenu-open-btn-icon"
+    "desktopMenu-open-btn-icon",
   );
   // desktop-open-button
   const desktopMenuCollapseBtnIcon = document.getElementById(
-    "desktopMenu-collapse-btn-icon"
+    "desktopMenu-collapse-btn-icon",
   );
   // desktop menu
   const desktopMenu = document.getElementById("desktop-menu");
+  const pageTheme = document.getElementById("theme");
+  const themeName = document.getElementById("themeName");
   // desktop-background-color
   const desktopBackground = document.getElementById(
-    "desktopMenu-background-color"
+    "desktopMenu-background-color",
   );
   // desktop menu icons
   const desktopMenuIcons = document.querySelectorAll(".desktopMenuIcon");
@@ -36,39 +38,43 @@ window.onload = function () {
   const mobileMenu = document.getElementById("mobile-menu");
   // mobile-background-color
   const mobileBackground = document.getElementById(
-    "mobileMenu-background-color"
+    "mobileMenu-background-color",
   );
   // mobileMenu-icon-tray1
   const mobileMenuIconTray1 = document.getElementById("mobileMenu-icon-tray1");
   // mobile menu icon containers
   const mobileMenuIconContainers = document.querySelectorAll(
-    ".mobileMenuIconContainer"
+    ".mobileMenuIconContainer",
   );
   // mobile menu icons
   const mobileMenuIcons = document.querySelectorAll(".mobileMenuIcon");
   //mobile menu icons names
   const mobileMenuIconsNames = document.querySelectorAll(".mobilMenuIconsName");
-//   mobile menu close button
+  //   mobile menu close button
   const mobileMenuCloseBtn = document.getElementById("mobile-menu-close-btn");
   mobileMenuIcons[5].style.display = "none";
 
+  pageTheme.onclick = function () {
+    if (body.style.backgroundColor === "rgb(230, 230, 230)") {
+      applyDarkMode();
+    } else {
+      applyLightMode();
+    }
+  };
 
-  //   ....................................................................................
+  //   Mobile menu open button....................................................................................
   mobileMenuIconContainers[4].onclick = function () {
     mobileMenu.style.transform = "translateY(0)";
-    mobileMenuIcons[4].style.display = "none";
+    mobileMenuIconContainers[4].style.display = "none";
     mobileMenuIcons[5].style.display = "flex";
     mobileMenuIcons[5].style.zIndex = "9999";
     mobileMenuCloseBtn.style.display = "flex";
 
     // Check if element exists before trying to change text
-    if (mobileMenuIconsNames[4]) {
-      mobileMenuIconsNames[4].textContent = "About";
-    }
   };
   mobileMenuCloseBtn.onclick = function () {
     mobileMenu.style.transform = "translateY(90px)";
-    mobileMenuIcons[4].style.display = "flex";
+    mobileMenuIconContainers[4].style.display = "flex";
     mobileMenuIcons[5].style.display = "none";
 
     // Check if element exists before trying to change text
@@ -82,30 +88,28 @@ window.onload = function () {
   function applyLightMode() {
     if (siteLogo) siteLogo.style.backgroundColor = "#fff";
     if (desktopCollapseButton) {
-      desktopCollapseButton.style.backgroundImage = "none";
-      desktopCollapseButton.style.backgroundColor = "#f0f0f0ff";
-      desktopCollapseButton.style.boxShadow = "0px 1px 5px 3px #acacad28";
+    desktopCollapseButton.style.boxShadow = " 0px 4px 4px 4px #ffffff50";
     }
     if (desktopMenu) desktopMenu.style.backgroundColor = "#ebebeb21";
     if (desktopBackground) {
+      desktopCollapseButton.style.backgroundColor = "#E6E5EA";
       desktopBackground.style.backgroundImage =
         "linear-gradient(50deg, #e9eaee80, #f3f3f38f, #f3f3f39f, #e9eaee93, #ffffff70)";
       desktopBackground.style.backgroundColor = "#efeff05e";
-      desktopBackground.style.border = "0.5px solid #ffffff36";
-      desktopBackground.style.boxShadow = "0px 3px 10px #cac7c76a";
+      desktopBackground.style.border = "1px solid #ffffff";
+      desktopBackground.style.boxShadow =
+        "10px 13px 10px #cac7c76a, -10px -13px 10px #dddddd70";
       desktopBackground.style.backdropFilter = "opacity(70%) blur(8px)";
     }
     desktopMenuIcons.forEach((icon) => {
-<<<<<<< HEAD
       icon.style.filter = "brightness(35%)";
-=======
-      icon.style.filter = "brightness(80.8%)";
->>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
     });
     body.style.backgroundColor = "#E6E6E6";
     if (lightModeToggle) lightModeToggle.style.display = "none";
     if (darkModeToggle) darkModeToggle.style.display = "flex";
     if (darkModeToggle) darkModeToggle.style.filter = "brightness(80.8%)";
+    if (themeName) themeName.textContent = "Dark";
+    themeName.style.color = "#4f6d86";
   }
 
   // Function to apply dark mode styles
@@ -131,22 +135,16 @@ window.onload = function () {
     body.style.backgroundColor = "#161616";
     if (lightModeToggle) lightModeToggle.style.display = "flex";
     if (darkModeToggle) darkModeToggle.style.display = "none";
+    if (themeName) themeName.textContent = "Light";
+    themeName.style.color = "#f2f5e6";
   }
 
-<<<<<<< HEAD
   // save theme preference to localStorage
-=======
-  // Function to save theme preference to localStorage
->>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
   function saveThemePreference(theme) {
     localStorage.setItem("theme-preference", theme);
   }
 
-<<<<<<< HEAD
   // get theme preference from localStorage
-=======
-  // Function to get theme preference from localStorage
->>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc
   function getThemePreference() {
     return localStorage.getItem("theme-preference") || "light"; // default to light mode
   }
@@ -179,30 +177,54 @@ window.onload = function () {
     };
   }
 
-  // Mobile Menu collapse button event
+  // Desktop Menu collapse button event
   if (desktopCollapseButton) {
     desktopCollapseButton.onclick = function () {
       header.style.transformOrigin = "96.5% 96.5%";
-      header.style.transform = "scale(50px)";
       header.style.transform = "scaleX(0)";
       header.style.transition = "transform 0.3s ease-in-out";
-      header.overflow = "hidden";
+      header.style.overflow = "hidden";
       desktopCollapseButton.style.display = "none";
       desktopOpenButton.style.display = "flex";
     };
   }
-  // Mobile Menu revert button event
+  // Desktop Menu open button event
   if (desktopOpenButton) {
     desktopOpenButton.onclick = function () {
       header.style.transformOrigin = "96.5% 96.5%";
-      header.style.transform = "scaleX(100%)";
+      header.style.transform = "scaleX(1)";
       header.style.transition = "transform 0.3s ease-in-out";
+      header.style.overflow = "visible";
       desktopCollapseButton.style.display = "flex";
       desktopOpenButton.style.display = "none";
     };
   }
+
+  // desktop menu elements
+  const desktopMenuIcon = document.getElementsByClassName(
+    "desktopMenuIconContainer",
+  );
+
+  const desktopMenuIconsHover = document.getElementsByClassName(
+    "desktopMenuIconHoverEffect",
+  );
+  let desktopIconIndex = null;
+
+  // mouse enter
+  Array.from(desktopMenuIcon).forEach((desktopMenuIconContainer, index) => {
+    desktopMenuIconContainer.onmouseover = menuIconHoverEffect;
+    function menuIconHoverEffect() {
+      desktopIconIndex = index;
+      desktopMenuIconsHover[desktopIconIndex].style.display = "flex";
+    }
+  });
+  // mouse leave
+  Array.from(desktopMenuIcon).forEach((desktopMenuIconContainer, index) => {
+    desktopMenuIconContainer.onmouseleave = menuItemMouseLeave;
+    function menuItemMouseLeave() {
+      desktopIconIndex = index;
+      desktopMenuIconsHover[desktopIconIndex].style.display = "none";
+    }
+  });
 };
-<<<<<<< HEAD
 // -------------------------------------------------------------------------------
-=======
->>>>>>> 901e29f3215324af3f4b55e7c851e12c0ed621bc

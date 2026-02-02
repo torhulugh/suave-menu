@@ -45,10 +45,6 @@
     <header>
       
       <!-- screen mode -->
-      <div id="screen-mode">
-        <img id="light-mode-icn" src="icn/light-mode.svg" alt="" />
-        <img id="dark-mode-icn" src="icn/DARK.svg" alt="" />
-      </div>
       <nav id="desktop-menu">
         <div id="desktopMenu-background-color">
           <!-- menu icons -->
@@ -139,12 +135,13 @@
                 </div>
               </a>
             </li>
-          </ul>
-          <div id="theme-toggle-btn">
+            <li id="theme">
                 <img id="light-mode" src="icn/light-mode.svg" />
                 <img id="dark-mode" src="icn/DARK.svg" />
-                <p class="desktopMenuIconsName">Theme</p>
-        </div>
+                <p id="themeName">Light</p>
+           </li>
+          </ul>
+          
       </nav>
     </header>
     <!--<<<<>>>> .2.| Mobile header <<<<>>>>-->
@@ -199,13 +196,20 @@
           <li class="mobileMenuIconContainer">
             <div class="mobileMenulink" href="">
               <img class="mobileMenuIcon" src="icn/more-icn.svg" />
-              <img class="mobileMenuIcon" src="icn/aboutme-icon.svg" />
               <p class="mobilMenuIconsName">More</p>
             </div>
           </li>
         </ul>
         <!-- tray2 -->
         <ul id="mobileMenu-icon-tray1">
+          
+        <ul id="mobileMenu-icon-tray1">
+          <li class="mobileMenuIconContainer">
+            <a class="mobileMenulink" href="pages/my-works.html">
+              <img class="mobileMenuIcon" src="icn/aboutme-icon.svg" />
+              <p class="mobilMenuIconsName">About</p>
+            </a>
+          </li>
           <li class="mobileMenuIconContainer">
             <a class="mobileMenulink" href="pages/my-works.html">
               <img class="mobileMenuIcon" src="icn/portfolio-icon.svg" />
@@ -224,18 +228,7 @@
               <p class="mobilMenuIconsName">Locker1</p>
             </a>
           </li>
-          <li class="mobileMenuIconContainer">
-            <a class="mobileMenulink" href="">
-              <img class="mobileMenuIcon" src="icn/locker.svg" />
-              <p class="mobilMenuIconsName">Locker2</p>
-            </a>
-          </li>
-          <li class="mobileMenuIconContainer">
-            <a class="mobileMenulink" href="">
-              <img class="mobileMenuIcon" src="icn/locker.svg" />
-              <p class="mobilMenuIconsName">Locker2</p>
-            </a>
-          </li>
+          
         </ul>
       </div>
     </nav>
