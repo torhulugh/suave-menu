@@ -32,6 +32,9 @@ window.onload = function () {
   );
   // desktop menu icons
   const desktopMenuIcons = document.querySelectorAll(".desktopMenuIcon");
+  const desktopMenuIconsNames = document.querySelectorAll(
+    ".desktopMenuIconsName",
+  );
   const body = document.body;
   //   ----------------- mobile menu elements ----------------- \\
   // mobile-menu
@@ -49,7 +52,9 @@ window.onload = function () {
   // mobile menu icons
   const mobileMenuIcons = document.querySelectorAll(".mobileMenuIcon");
   //mobile menu icons names
-  const mobileMenuIconsNames = document.querySelectorAll(".mobilMenuIconsName");
+  const mobileMenuIconsNames = document.querySelectorAll(
+    ".mobileMenuIconsName",
+  );
   //   mobile menu close button
   const mobileMenuCloseBtn = document.getElementById("mobile-menu-close-btn");
   mobileMenuIcons[5].style.display = "none";
@@ -57,8 +62,10 @@ window.onload = function () {
   pageTheme.onclick = function () {
     if (body.style.backgroundColor === "rgb(230, 230, 230)") {
       applyDarkMode();
+      saveThemePreference("dark");
     } else {
       applyLightMode();
+      saveThemePreference("light");
     }
   };
 
@@ -69,15 +76,11 @@ window.onload = function () {
     mobileMenuIcons[5].style.display = "flex";
     mobileMenuIcons[5].style.zIndex = "9999";
     mobileMenuCloseBtn.style.display = "flex";
-
-    // Check if element exists before trying to change text
   };
   mobileMenuCloseBtn.onclick = function () {
     mobileMenu.style.transform = "translateY(90px)";
     mobileMenuIconContainers[4].style.display = "flex";
     mobileMenuIcons[5].style.display = "none";
-
-    // Check if element exists before trying to change text
     if (mobileMenuIconsNames[4]) {
       mobileMenuIconsNames[4].textContent = "More";
       mobileMenuCloseBtn.style.display = "none";
@@ -88,11 +91,11 @@ window.onload = function () {
   function applyLightMode() {
     if (siteLogo) siteLogo.style.backgroundColor = "#fff";
     if (desktopCollapseButton) {
-    desktopCollapseButton.style.boxShadow = " 0px 4px 4px 4px #ffffff50";
+      desktopCollapseButton.style.boxShadow = " 0px 4px 4px 0px #ffffff50";
     }
     if (desktopMenu) desktopMenu.style.backgroundColor = "#ebebeb21";
     if (desktopBackground) {
-      desktopCollapseButton.style.backgroundColor = "#E6E5EA";
+      desktopCollapseButton.style.backgroundColor = "#E1E0E3";
       desktopBackground.style.backgroundImage =
         "linear-gradient(50deg, #e9eaee80, #f3f3f38f, #f3f3f39f, #e9eaee93, #ffffff70)";
       desktopBackground.style.backgroundColor = "#efeff05e";
@@ -100,16 +103,19 @@ window.onload = function () {
       desktopBackground.style.boxShadow =
         "10px 13px 10px #cac7c76a, -10px -13px 10px #dddddd70";
       desktopBackground.style.backdropFilter = "opacity(70%) blur(8px)";
+      desktopMenuIconsNames.forEach((name) => {
+        name.style.color = "#282a2c";
+      });
     }
     desktopMenuIcons.forEach((icon) => {
-      icon.style.filter = "brightness(35%)";
+      icon.style.filter = "brightness(40%)";
     });
     body.style.backgroundColor = "#E6E6E6";
     if (lightModeToggle) lightModeToggle.style.display = "none";
     if (darkModeToggle) darkModeToggle.style.display = "flex";
     if (darkModeToggle) darkModeToggle.style.filter = "brightness(80.8%)";
     if (themeName) themeName.textContent = "Dark";
-    themeName.style.color = "#4f6d86";
+    themeName.style.color = "#96a1b2";
   }
 
   // Function to apply dark mode styles
@@ -129,6 +135,9 @@ window.onload = function () {
       desktopBackground.style.boxShadow = "0px 3px 10px #0000006a";
       desktopBackground.style.backdropFilter = "opacity(70%) blur(8px)";
     }
+    desktopMenuIconsNames.forEach((name) => {
+      name.style.color = "#979292";
+    });
     desktopMenuIcons.forEach((icon) => {
       icon.style.filter = "brightness(80.8%)";
     });
@@ -146,15 +155,28 @@ window.onload = function () {
 
   // get theme preference from localStorage
   function getThemePreference() {
-    return localStorage.getItem("theme-preference") || "light"; // default to light mode
+    const saved = localStorage.getItem("theme-preference");
+    if (saved) {
+      return saved;
+    }
+    // If no saved preference, check system preference
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
+    }
+    return "light"; // fallback to light mode
   }
 
   // Apply saved theme on page load
   const savedTheme = getThemePreference();
   if (savedTheme === "dark") {
     applyDarkMode();
+    saveThemePreference("dark"); // Save the preference if it was detected from system
   } else {
     applyLightMode();
+    saveThemePreference("light"); // Save the preference if it was detected from system
   }
 
   // Light mode toggle event
@@ -226,5 +248,26 @@ window.onload = function () {
       desktopMenuIconsHover[desktopIconIndex].style.display = "none";
     }
   });
+
+  // Theme button hover effects
+  if (pageTheme) {
+    pageTheme.onmouseenter = function() {
+      if (body.style.backgroundColor === "rgb(230, 230, 230)") {
+        // Light mode hover effect
+        pageTheme.style.backgroundColor = "#9dbee7)";
+        
+        
+      } else {
+        // Dark mode hover effect
+        pageTheme.style.backgroundColor = "#595959";
+      }
+    };
+    
+    pageTheme.onmouseleave = function() {
+      // Reset to default background
+      pageTheme.style.backgroundColor = "";
+      pageTheme.style.boxShadow = "";
+    };
+  }
 };
 // -------------------------------------------------------------------------------
